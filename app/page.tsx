@@ -17,21 +17,6 @@ const problems = [
   },
 ];
 
-const features = [
-  {
-    title: "Log your pill and how you feel",
-    text: "One-tap dose logging with timing reminders, plus a 30-second symptom check-in. Flags coffee, calcium and iron that can affect absorption.",
-  },
-  {
-    title: "AI finds your patterns",
-    text: "Connects Apple Health, Google Fit and Garmin with your lab results. The AI spots how sleep, pill timing and routine line up with how you feel, so you don't have to.",
-  },
-  {
-    title: "Walk in with data",
-    text: "An AI-written one-page summary before each visit: TSH trend, adherence, symptoms and your questions. Works with your current doctor.",
-  },
-];
-
 export default function HomePage() {
   return (
     <div className="wrap" id="top">
@@ -73,17 +58,8 @@ export default function HomePage() {
           ))}
         </section>
 
-        <section aria-labelledby="how">
+        <section className="tagline" aria-labelledby="how">
           <h2 id="how">One tap a day. A clear picture at every appointment.</h2>
-          <div className="features">
-            {features.map((feature, index) => (
-              <article className="feature" key={feature.title}>
-                <span className="feature-index">0{index + 1}</span>
-                <h3>{feature.title}</h3>
-                <p>{feature.text}</p>
-              </article>
-            ))}
-          </div>
         </section>
 
         <section className="signup" id="join" aria-labelledby="join-title">
@@ -103,9 +79,7 @@ export default function HomePage() {
       </main>
 
       <footer>
-        <span>
-          T-Tensor is in development. Contact: <a href="mailto:randic.petra@gmail.com">randic.petra@gmail.com</a>
-        </span>
+        <span>T-Tensor is in development.</span>
         <span>Not a medical device. Not a substitute for professional medical advice.</span>
       </footer>
     </div>

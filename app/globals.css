@@ -271,8 +271,7 @@ select:focus-visible,
 .report-head span,
 .chart text,
 .stat b,
-.sample-tag,
-.feature-index {
+.sample-tag {
   font-family: var(--font-mono), ui-monospace, "SFMono-Regular", Menlo, monospace;
 }
 
@@ -390,40 +389,13 @@ h2 {
   max-width: 16em;
 }
 
-.features {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 22px;
+.tagline h2 {
+  margin: 0;
 }
 
-.feature {
-  min-width: 0;
-  padding-top: 14px;
-  border-top: 2px solid var(--accent);
-}
-
-.feature-index {
-  display: block;
-  margin-bottom: 10px;
-  color: var(--accent);
-  font-size: 0.75rem;
-  letter-spacing: 0.06em;
-}
-
-.feature h3 {
-  font-size: 1.18rem;
-  margin: 0 0 8px;
-  letter-spacing: -0.02em;
-}
-
-.feature p,
 .signup p {
   margin: 0;
   color: var(--muted);
-}
-
-.feature p {
-  font-size: 0.98rem;
 }
 
 .signup {
@@ -606,15 +578,9 @@ footer {
   flex-direction: column;
   gap: 6px;
 }
-
-footer a {
-  color: inherit;
-}
-
 @media (max-width: 860px) {
   .hero,
   .signup,
-  .features,
   .problem {
     grid-template-columns: 1fr;
   }
