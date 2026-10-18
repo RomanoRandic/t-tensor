@@ -6,4 +6,3 @@ out
 next-env.d.ts
 .env
 .env*.local
-data/waitlist.ndjson

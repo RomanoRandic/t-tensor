@@ -36,7 +36,7 @@ function sameOrigin(request: Request): boolean {
   }
 }
 
-function json(body: { ok: boolean; saved?: boolean; error?: string }, status = 200) {
+function json(body: { ok: boolean; error?: string }, status = 200) {
   return NextResponse.json(body, {
     status,
     headers: { "Cache-Control": "no-store" },
@@ -77,7 +77,7 @@ export async function POST(request: Request) {
     return json({ ok: false, error: parsed.error }, 400);
   }
   if (parsed.honeypot) {
-    return json({ ok: true, saved: true });
+    return json({ ok: true });
   }
 
   const entry: WaitlistEntry = {
@@ -86,9 +86,10 @@ export async function POST(request: Request) {
   };
 
   try {
-    const result = await saveWaitlistEntry(entry);
-    return json({ ok: true, saved: result.persisted });
-  } catch {
+    await saveWaitlistEntry(entry);
+    return json({ ok: true });
+  } catch (error) {
+    console.error(error);
     return json({ ok: false, error: "Could not save your signup. Please try again." }, 500);
   }
 }

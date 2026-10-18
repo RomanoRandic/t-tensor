@@ -585,12 +585,6 @@ button[type="submit"]:disabled {
 .status.err {
   background: var(--flag-soft);
 }
-
-.status a {
-  color: inherit;
-  font-weight: 600;
-}
-
 .hp {
   position: absolute;
   width: 1px;

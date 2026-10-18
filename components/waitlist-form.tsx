@@ -8,7 +8,7 @@ type Phase =
   | { type: "idle" }
   | { type: "submitting" }
   | { type: "success"; message: string }
-  | { type: "error"; message: string; contact?: boolean };
+  | { type: "error"; message: string };
 
 const SUCCESS_MESSAGE = "You're on the list. We'll email you when early access opens.";
 
@@ -34,21 +34,12 @@ export function WaitlistForm() {
         }),
       });
 
-      const payload = (await response.json()) as { ok?: boolean; saved?: boolean; error?: string };
+      const payload = (await response.json()) as { ok?: boolean; error?: string };
 
       if (!response.ok || !payload.ok) {
         setPhase({
           type: "error",
           message: payload.error ?? "Something went wrong. Please try again.",
-        });
-        return;
-      }
-
-      if (!payload.saved) {
-        setPhase({
-          type: "error",
-          contact: true,
-          message: "We couldn't store this signup yet.",
         });
         return;
       }
@@ -151,15 +142,7 @@ export function WaitlistForm() {
       </p>
       {phase.type === "error" ? (
         <div className="status err" role="status">
-          {phase.contact ? (
-            <>
-              We couldn&apos;t store this signup yet. Email{" "}
-              <a href="mailto:randic.petra@gmail.com">randic.petra@gmail.com</a> and we&apos;ll add you to the
-              waitlist.
-            </>
-          ) : (
-            phase.message
-          )}
+          {phase.message}
         </div>
       ) : null}
     </form>
