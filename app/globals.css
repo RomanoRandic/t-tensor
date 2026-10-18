@@ -1,31 +1,31 @@
 :root {
-  --bg: #f3f6f7;
+  --bg: #f6f4fb;
   --surface: #ffffff;
-  --ink: #12222b;
-  --muted: #56666f;
-  --line: #d5e0e4;
-  --accent: #0d6b84;
+  --ink: #1e1530;
+  --muted: #625a73;
+  --line: #e2dcef;
+  --accent: #6d28d9;
   --accent-ink: #ffffff;
-  --accent-soft: #e2f0f3;
-  --flag: #b5651d;
-  --flag-soft: #fbeedd;
+  --accent-soft: #efe7fd;
+  --flag: #c2417f;
+  --flag-soft: #fbe8f1;
   --ok: #2e7d4f;
-  --shadow: 18, 34, 43;
+  --shadow: 40, 20, 80;
   color-scheme: light;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --bg: #0e1619;
-    --surface: #152126;
-    --ink: #e6eef1;
-    --muted: #9fb0b7;
-    --line: #263a41;
-    --accent: #4fb3cc;
-    --accent-ink: #06171c;
-    --accent-soft: #163640;
-    --flag: #e9a35e;
-    --flag-soft: #3a2a18;
+    --bg: #120d1c;
+    --surface: #1b1428;
+    --ink: #eee9f7;
+    --muted: #a99fbd;
+    --line: #2f2542;
+    --accent: #a78bfa;
+    --accent-ink: #160a2e;
+    --accent-soft: #2a1d47;
+    --flag: #f08bbd;
+    --flag-soft: #3a1a2c;
     --ok: #6cc596;
     --shadow: 0, 0, 0;
     color-scheme: dark;
