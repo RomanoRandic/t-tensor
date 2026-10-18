@@ -1,44 +1,37 @@
-import { Logo } from "@/components/logo";
 import { ReportCard } from "@/components/report-card";
+import { SiteFooter } from "@/components/site-footer";
+import { SiteHeader } from "@/components/site-header";
 import { WaitlistForm } from "@/components/waitlist-form";
 
 const problems = [
   {
-    figure: "6–12 weeks",
-    text: "between blood tests while your dose is adjusted, then every 6–12 months for life.",
+    figure: "Weeks apart",
+    text: "Blood tests are spaced weeks apart while your dose is adjusted, then usually once a year. How you feel in between goes unrecorded.",
   },
   {
-    figure: "1 in 2",
-    text: "patients stop taking their pill consistently within a year, and doctors can't see it.",
+    figure: "30–60 min",
+    text: "before breakfast, on an empty stomach, apart from coffee, calcium and iron. That's how levothyroxine is usually meant to be taken, and it's easy to slip on.",
+    sourced: true,
   },
   {
-    figure: "10 minutes",
-    text: "to describe months of fatigue, brain fog and weight changes from memory.",
+    figure: "From memory",
+    text: "is how you describe months of fatigue, brain fog and weight changes in a short appointment.",
   },
 ];
 
 export default function HomePage() {
   return (
-    <div className="wrap" id="top">
-      <header className="top">
-        <a className="brand" href="#top" aria-label="T-Tensor">
-          <Logo />
-          <span>T-Tensor</span>
-          <small>AI thyroid tracking</small>
-        </a>
-        <a className="nav-cta" href="#join">
-          Join the waitlist
-        </a>
-      </header>
+    <div className="wrap">
+      <SiteHeader />
 
-      <main>
+      <main id="main">
         <section className="hero">
           <div>
             <p className="eyebrow">AI for people on levothyroxine</p>
             <h1>Know why you feel off between blood tests</h1>
             <p className="lede">
-              T-Tensor&apos;s AI connects your thyroid medication, symptoms, labs and wearable data, finds the
-              patterns behind how you feel, and writes a one-page summary your doctor can read in two minutes.
+              T-Tensor&apos;s AI will connect your thyroid medication, symptoms, labs and wearable data, find the
+              patterns behind how you feel, and write a short summary to bring to your doctor.
             </p>
             <a className="cta" href="#join">
               Join the waitlist
@@ -49,13 +42,29 @@ export default function HomePage() {
           <ReportCard />
         </section>
 
-        <section className="problem" aria-label="The problem">
-          {problems.map((item) => (
-            <div key={item.figure}>
-              <b>{item.figure}</b>
-              <p>{item.text}</p>
-            </div>
-          ))}
+        <section className="problem-block" aria-label="The problem">
+          <div className="problem">
+            {problems.map((item) => (
+              <div key={item.figure}>
+                <b>
+                  {item.figure}
+                  {item.sourced ? <sup aria-hidden="true">*</sup> : null}
+                </b>
+                <p>{item.text}</p>
+              </div>
+            ))}
+          </div>
+          <p className="sources">
+            * Sources: U.S. prescribing information for levothyroxine (
+            <a href="https://dailymed.nlm.nih.gov/dailymed/search.cfm?query=levothyroxine" rel="noopener noreferrer" target="_blank">
+              DailyMed
+            </a>
+            ); American Thyroid Association,{" "}
+            <a href="https://doi.org/10.1089/thy.2014.0028" rel="noopener noreferrer" target="_blank">
+              Guidelines for the Treatment of Hypothyroidism
+            </a>
+            , <i>Thyroid</i>, 2014. Your own instructions may differ, so follow your doctor and pharmacist.
+          </p>
         </section>
 
         <section className="tagline" aria-labelledby="how">
@@ -69,6 +78,9 @@ export default function HomePage() {
               We&apos;re building T-Tensor with people who live with hypothyroidism and Hashimoto&apos;s. Join the
               waitlist and answer three quick questions so we build what you actually need.
             </p>
+            <p>
+              Your answers are stored securely, used only for this waitlist and product research, and never sold.
+            </p>
             <p className="fine">
               T-Tensor helps you track and understand your health. It doesn&apos;t diagnose or give dosing advice.
               Always talk to your doctor before changing your medication.
@@ -78,10 +90,7 @@ export default function HomePage() {
         </section>
       </main>
 
-      <footer>
-        <span>T-Tensor is in development.</span>
-        <span>Not a medical device. Not a substitute for professional medical advice.</span>
-      </footer>
+      <SiteFooter />
     </div>
   );
 }

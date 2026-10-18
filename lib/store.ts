@@ -25,13 +25,17 @@ export async function saveWaitlistEntry(entry: WaitlistEntry): Promise<void> {
       condition: entry.condition,
       location: entry.location,
       would_pay: entry.wouldPay,
+      consent_at: entry.consentAt,
+      privacy_version: entry.privacyVersion,
       created_at: entry.createdAt,
     }),
     cache: "no-store",
   });
 
   if (!response.ok) {
-    const detail = await response.text();
-    throw new Error(`Supabase insert failed (${response.status}): ${detail}`);
+    // Only log the error code: Postgres error details can echo the row, which holds health data.
+    const body = (await response.json().catch(() => null)) as { code?: unknown } | null;
+    const code = typeof body?.code === "string" ? body.code : "unknown";
+    throw new Error(`Supabase insert failed (${response.status}, ${code})`);
   }
 }

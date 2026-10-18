@@ -2,6 +2,8 @@
 
 import { useState } from "react";
 import type { FormEvent } from "react";
+import Link from "next/link";
+import { PRIVACY_EMAIL, PRIVACY_VERSION } from "@/lib/legal";
 import { CONDITIONS } from "@/lib/waitlist";
 
 type Phase =
@@ -30,6 +32,8 @@ export function WaitlistForm() {
           condition: data.get("condition"),
           location: data.get("location"),
           wouldPay: data.get("would_pay"),
+          consent: data.get("consent") === "yes",
+          privacyVersion: PRIVACY_VERSION,
           hp_field: data.get("hp_field"),
         }),
       });
@@ -133,12 +137,22 @@ export function WaitlistForm() {
         </div>
       </fieldset>
 
+      <label className="consent">
+        <input type="checkbox" name="consent" value="yes" required disabled={pending} />
+        <span>
+          I&apos;m 18 or older and I consent to T-Tensor collecting and using my answers, including my thyroid
+          condition, to run this waitlist and research what to build, as described in the{" "}
+          <Link href="/privacy">Privacy Policy</Link> and{" "}
+          <Link href="/privacy#consumer-health-data">Consumer Health Data Privacy Policy</Link>.
+        </span>
+      </label>
+
       <button type="submit" disabled={pending}>
         {pending ? "Joining…" : "Join the waitlist"}
       </button>
       <p className="fine">
-        We only use your email to contact you about T-Tensor. Unsubscribe anytime, and we&apos;ll delete your
-        answers on request.
+        We never sell or share your data for advertising. Withdraw consent or ask us to delete your answers anytime at{" "}
+        <a href={`mailto:${PRIVACY_EMAIL}`}>{PRIVACY_EMAIL}</a>.
       </p>
       {phase.type === "error" ? (
         <div className="status err" role="status">

@@ -1,9 +1,12 @@
+import { PRIVACY_VERSION } from "@/lib/legal";
+
 export const CONDITIONS = [
   "Hypothyroidism",
   "Hashimoto's",
   "Thyroid removed (thyroidectomy)",
   "Caring for someone with thyroid disease",
   "Other",
+  "Prefer not to say",
 ] as const;
 
 export const PAY_ANSWERS = ["yes", "maybe", "no"] as const;
@@ -16,12 +19,16 @@ export type WaitlistEntry = {
   condition: Condition;
   location: string;
   wouldPay: PayAnswer;
+  consentAt: string;
+  privacyVersion: string;
   createdAt: string;
 };
 
+type ParsedEntry = Omit<WaitlistEntry, "createdAt" | "consentAt">;
+
 export type ParseResult =
   | { ok: true; honeypot: true }
-  | { ok: true; honeypot: false; entry: Omit<WaitlistEntry, "createdAt"> }
+  | { ok: true; honeypot: false; entry: ParsedEntry }
   | { ok: false; error: string };
 
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -72,9 +79,13 @@ export function parseWaitlist(body: unknown): ParseResult {
     return { ok: false, error: "Let us know if you'd pay $9.99/month." };
   }
 
+  if (record.consent !== true || record.privacyVersion !== PRIVACY_VERSION) {
+    return { ok: false, error: "Please confirm your consent to join the waitlist." };
+  }
+
   return {
     ok: true,
     honeypot: false,
-    entry: { email, condition, location, wouldPay },
+    entry: { email, condition, location, wouldPay, privacyVersion: PRIVACY_VERSION },
   };
 }

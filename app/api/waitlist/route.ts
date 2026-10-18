@@ -80,9 +80,11 @@ export async function POST(request: Request) {
     return json({ ok: true });
   }
 
+  const now = new Date().toISOString();
   const entry: WaitlistEntry = {
     ...parsed.entry,
-    createdAt: new Date().toISOString(),
+    consentAt: now,
+    createdAt: now,
   };
 
   try {

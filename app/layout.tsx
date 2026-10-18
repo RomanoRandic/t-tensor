@@ -22,7 +22,7 @@ const mono = JetBrains_Mono({
 });
 
 const description =
-  "T-Tensor is an AI thyroid tracker that connects your medication, symptoms, labs and wearable data, finds your personal patterns, and writes a doctor-ready summary before every appointment.";
+  "T-Tensor is an AI thyroid tracker in development. It will connect your medication, symptoms, labs and wearable data, find your personal patterns, and write a summary to bring to your doctor. Join the waitlist.";
 
 export const metadata: Metadata = {
   title: "T-Tensor Waitlist",
@@ -56,8 +56,8 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en" className={`${display.variable} ${sans.variable} ${mono.variable}`}>
       <body>
-        <a className="skip" href="#join">
-          Skip to waitlist
+        <a className="skip" href="#main">
+          Skip to content
         </a>
         {children}
       </body>
