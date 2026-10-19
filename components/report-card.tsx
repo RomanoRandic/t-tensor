@@ -1,6 +1,6 @@
-export function ReportCard() {
+export function ReportCard({ phase = 2 }: { phase?: 0 | 1 | 2 }) {
   return (
-    <figure className="report">
+    <figure className="report" data-phase={phase}>
       <div className="report-head">
         <strong>Visit summary · 8 weeks</strong>
         <span>Example patient</span>
@@ -43,7 +43,7 @@ export function ReportCard() {
           Wk 8 · 2.1
         </text>
       </svg>
-      <div className="stats">
+      <div className="stats reveal reveal-stats">
         <div className="stat">
           <b>91%</b>
           <span>Doses on time</span>
@@ -57,7 +57,7 @@ export function ReportCard() {
           <span>Fatigue score</span>
         </div>
       </div>
-      <div className="insight">
+      <div className="insight reveal reveal-insight">
         <i aria-hidden="true" />
         <span>
           <strong>AI insight:</strong> Fatigue was higher on days the dose was taken within 30 min of breakfast.

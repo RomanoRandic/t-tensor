@@ -13,7 +13,7 @@ const mail = `mailto:${PRIVACY_EMAIL}`;
 
 export default function PrivacyPage() {
   return (
-    <div className="wrap">
+    <div className="wrap shell">
       <SiteHeader />
 
       <main id="main" className="legal">
