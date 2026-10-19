@@ -3,6 +3,25 @@ import { ScrollStory } from "@/components/scroll-story";
 import { SiteFooter } from "@/components/site-footer";
 import { WaitlistForm } from "@/components/waitlist-form";
 
+const voices = [
+  {
+    quote: "You can't explain to doctors that you feel terrible when on paper everything looks fine.",
+    name: "Anamarija",
+    role: "Patient",
+  },
+  {
+    quote:
+      "I think exhaustion is the hardest thing to communicate. You can say you feel exhausted, but doctors often say it could be caused by something else.",
+    name: "Aimee",
+    role: "Patient, on levothyroxine",
+  },
+  {
+    quote: "When it comes to the thyroid world, I think the room is very big, because nothing much has been done.",
+    name: "Ashok Bhaseen",
+    role: "President, Thyroid Federation International",
+  },
+];
+
 const problems = [
   {
     figure: "Weeks apart",
@@ -53,6 +72,31 @@ export default function HomePage() {
         </div>
 
         <ScrollStory />
+
+        <div className="wrap">
+          <section className="voices" aria-labelledby="voices-title">
+            <p className="eyebrow">From our conversations</p>
+            <h2 id="voices-title">Patients, and people who work in thyroid care</h2>
+            <p className="voices-lead">
+              Before a line of the product was settled, we sat with people who live on levothyroxine, and with Ashok
+              Bhaseen, president of Thyroid Federation International. These are their words, not a claim about what
+              T-Tensor can do.
+            </p>
+            <div className="voices-grid">
+              {voices.map((voice) => (
+                <figure className="voice" key={voice.name}>
+                  <blockquote>
+                    <p>{voice.quote}</p>
+                  </blockquote>
+                  <figcaption>
+                    <b>{voice.name}</b>
+                    <span>{voice.role}</span>
+                  </figcaption>
+                </figure>
+              ))}
+            </div>
+          </section>
+        </div>
 
         <div className="wrap">
           <section className="signup" id="join" aria-labelledby="join-title">

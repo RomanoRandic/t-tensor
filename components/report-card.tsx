@@ -6,6 +6,7 @@ export function ReportCard({ phase = 2 }: { phase?: 0 | 1 | 2 }) {
         <span>Example patient</span>
       </div>
       <div className="label">TSH between lab draws (mIU/L)</div>
+      <div className="chart-fit">
       <svg
         className="chart"
         viewBox="0 0 320 126"
@@ -43,6 +44,7 @@ export function ReportCard({ phase = 2 }: { phase?: 0 | 1 | 2 }) {
           Wk 8 · 2.1
         </text>
       </svg>
+      </div>
       <div className="stats reveal reveal-stats">
         <div className="stat">
           <b>91%</b>

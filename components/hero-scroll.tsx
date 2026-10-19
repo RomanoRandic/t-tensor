@@ -95,7 +95,7 @@ export function HeroScroll() {
   const phase = phaseFor(progress, SLIDES.length);
 
   return (
-    <section className="opener" ref={openerRef} aria-labelledby="opener-title" style={{ "--steps": SLIDES.length } as CSSProperties}>
+    <section className="opener" data-phase={phase} ref={openerRef} aria-labelledby="opener-title" style={{ "--steps": SLIDES.length } as CSSProperties}>
       <div className="sr-only">
         <h1 id="opener-title">{SLIDES[0].title}</h1>
         <p>{SLIDES[0].body}</p>
@@ -156,7 +156,7 @@ export function HeroScroll() {
         </div>
       </div>
       <noscript>
-        <style>{".opener{height:auto!important}.opener-pin{position:static!important;height:auto!important}.opener-lines{display:flex!important;flex-direction:column;gap:36px;min-height:0!important}.opener-slide{position:static!important;opacity:1!important}.opener-foot{display:none!important}.report .reveal{max-height:180px!important;opacity:1!important}"}</style>
+        <style>{".opener{height:auto!important}.opener-pin{position:static!important;height:auto!important;overflow:visible!important}.opener-lines{display:flex!important;flex-direction:column;gap:36px;min-height:0!important}.opener-slide{position:static!important;opacity:1!important}.opener-foot{display:none!important}.report .reveal{max-height:180px!important;opacity:1!important}.opener .report{display:block!important;max-height:none!important;overflow:visible!important}.opener .chart-fit{display:contents!important}.opener .chart{position:static!important;height:auto!important}"}</style>
       </noscript>
     </section>
   );

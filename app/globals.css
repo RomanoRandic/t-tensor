@@ -290,13 +290,11 @@ button[type="submit"]:hover:not(:disabled) {
 }
 
 .opener-lines {
-  position: relative;
-  min-height: 19rem;
+  display: grid;
 }
 
 .opener-slide {
-  position: absolute;
-  inset: 0;
+  grid-area: 1 / 1;
   opacity: var(--o, 0);
 }
 
@@ -311,6 +309,10 @@ button[type="submit"]:hover:not(:disabled) {
 
 .opener-slide .lede {
   margin-bottom: 0;
+}
+
+.opener .cta {
+  margin-top: 22px;
 }
 
 .opener-foot {
@@ -422,6 +424,10 @@ select:focus-visible,
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--muted);
+}
+
+.chart-fit {
+  display: contents;
 }
 
 .chart {
@@ -799,6 +805,73 @@ h2 {
   margin-top: 14px;
 }
 
+.voices-lead {
+  max-width: 40rem;
+  margin: -12px 0 28px;
+  color: var(--muted);
+}
+
+.voices-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 14px;
+}
+
+.voice {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  margin: 0;
+  padding: 22px 20px 18px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+}
+
+.voice blockquote {
+  margin: 0;
+}
+
+.voice blockquote p {
+  margin: 0;
+  font-family: var(--font-display), "Avenir Next", "Segoe UI", sans-serif;
+  font-size: clamp(1.12rem, 2.2vw, 1.35rem);
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  line-height: 1.28;
+  text-wrap: pretty;
+}
+
+.voice blockquote p::before {
+  content: "\201C";
+}
+
+.voice blockquote p::after {
+  content: "\201D";
+}
+
+.voice figcaption {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin-top: auto;
+  padding-top: 18px;
+  font-size: 0.86rem;
+  color: var(--muted);
+}
+
+.voice figcaption b {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+@media (min-width: 861px) {
+  .voices-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+  }
+}
+
 form {
   position: relative;
   display: flex;
@@ -1122,42 +1195,138 @@ footer {
     height: calc(var(--steps) * 78dvh + 100dvh);
   }
 
+  .opener-pin {
+    gap: 8px;
+    overflow: hidden;
+    padding: 12px max(16px, env(safe-area-inset-right, 0px)) 10px max(16px, env(safe-area-inset-left, 0px));
+  }
+
   .opener-stage {
-    grid-template-columns: 1fr;
-    align-items: start;
-    align-content: start;
-    gap: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+    padding-top: 0;
+  }
+
+  .opener-copy {
+    flex: none;
+  }
+
+  .opener .report {
+    display: flex;
+    flex: 0 1 auto;
+    flex-direction: column;
+    min-height: 0;
+    max-height: 100%;
     overflow: hidden;
   }
 
-  .opener-pin {
-    gap: 12px;
-    padding-bottom: 16px;
+  .opener .report > :not(.chart-fit) {
+    flex-shrink: 0;
   }
 
-  .opener-lines {
-    min-height: 11.25rem;
+  .opener .chart-fit {
+    display: block;
+    position: relative;
+    flex: 1 1 auto;
+    width: 100%;
+    min-height: 64px;
+    aspect-ratio: 320 / 126;
+  }
+
+  .opener .hero-note,
+  .opener-foot {
+    overflow: hidden;
+    transition: max-height 0.45s ease, opacity 0.35s ease, margin 0.45s ease;
+  }
+
+  .opener[data-phase="1"] .hero-note,
+  .opener[data-phase="2"] .hero-note,
+  .opener[data-phase="1"] .opener-foot,
+  .opener[data-phase="2"] .opener-foot {
+    max-height: 0;
+    margin-top: 0;
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .opener .chart {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0;
   }
 
   .opener-title {
-    font-size: clamp(1.85rem, 8vw, 2.5rem);
-    margin-bottom: 10px;
+    font-size: clamp(1.7rem, 7.4vw, 2.15rem);
+    line-height: 1.05;
+    margin: 6px 0 8px;
+  }
+
+  .opener-slide .lede {
+    font-size: 1rem;
+    line-height: 1.4;
+  }
+
+  .opener .cta {
+    margin-top: 16px;
+    padding: 12px 18px;
+  }
+
+  .opener .hero-note {
+    margin-top: 6px;
+    font-size: 0.84rem;
   }
 
   .opener-foot {
-    margin-top: 16px;
+    margin-top: 8px;
   }
 
   .opener .report {
     padding: 12px 12px 8px;
   }
 
+  .opener .report-head {
+    flex-wrap: nowrap;
+    gap: 8px;
+    padding-bottom: 8px;
+    margin-bottom: 8px;
+  }
+
+  .opener .report-head strong {
+    font-size: 0.92rem;
+  }
+
+  .opener .report-head span {
+    font-size: 0.66rem;
+    white-space: nowrap;
+  }
+
   .opener .chart {
-    margin: 2px 0 6px;
+    margin: 0;
+  }
+
+  .opener .stats {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 8px;
   }
 
   .opener .stat {
-    padding: 8px;
+    padding: 8px 6px;
+  }
+
+  .opener .stat:last-child {
+    grid-column: auto;
+  }
+
+  .opener .stat b {
+    font-size: 1rem;
+  }
+
+  .opener .stat span {
+    font-size: 0.68rem;
   }
 
   .opener .insight {
@@ -1166,11 +1335,29 @@ footer {
   }
 
   .opener .sample-tag {
-    margin-top: 6px;
+    margin-top: 4px;
+    font-size: 0.66rem;
   }
 
   h2 {
     max-width: none;
+  }
+}
+
+@media (max-width: 860px) and (max-height: 700px) {
+  .opener-title {
+    font-size: 1.45rem;
+    margin: 4px 0 6px;
+  }
+
+  .opener-slide .lede {
+    font-size: 0.92rem;
+    line-height: 1.35;
+  }
+
+  .opener .cta {
+    margin-top: 10px;
+    padding: 10px 16px;
   }
 }
 
@@ -1207,6 +1394,26 @@ footer {
 
   .opener-pin {
     position: static;
+    height: auto;
+  }
+
+  .opener-pin {
+    overflow: visible;
+  }
+
+  .opener .report {
+    display: block;
+    max-height: none;
+    overflow: visible;
+  }
+
+  .opener .chart-fit {
+    display: contents;
+  }
+
+  .opener .chart {
+    position: static;
+    width: 100%;
     height: auto;
   }
 
