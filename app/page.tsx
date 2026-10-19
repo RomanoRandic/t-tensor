@@ -6,19 +6,14 @@ import { WaitlistForm } from "@/components/waitlist-form";
 const voices = [
   {
     quote: "You can't explain to doctors that you feel terrible when on paper everything looks fine.",
-    name: "Anamarija",
+    name: "Mara",
     role: "Patient",
   },
   {
     quote:
       "I think exhaustion is the hardest thing to communicate. You can say you feel exhausted, but doctors often say it could be caused by something else.",
-    name: "Aimee",
+    name: "Elena",
     role: "Patient, on levothyroxine",
-  },
-  {
-    quote: "When it comes to the thyroid world, I think the room is very big, because nothing much has been done.",
-    name: "Ashok Bhaseen",
-    role: "President, Thyroid Federation International",
   },
 ];
 
@@ -75,12 +70,12 @@ export default function HomePage() {
 
         <div className="wrap">
           <section className="voices" aria-labelledby="voices-title">
-            <p className="eyebrow">From our conversations</p>
-            <h2 id="voices-title">Patients, and people who work in thyroid care</h2>
+            <p className="eyebrow">Validation interviews</p>
+            <h2 id="voices-title">We asked before we built</h2>
             <p className="voices-lead">
-              Before a line of the product was settled, we sat with people who live on levothyroxine, and with Ashok
-              Bhaseen, president of Thyroid Federation International. These are their words, not a claim about what
-              T-Tensor can do.
+              We ran validation interviews with patients, doctors, and members of thyroid federations. For privacy, only
+              patient words are shown here, and the names are changed. These lines are not a claim about what T-Tensor
+              can do.
             </p>
             <div className="voices-grid">
               {voices.map((voice) => (
