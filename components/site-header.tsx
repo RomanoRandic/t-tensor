@@ -3,15 +3,22 @@ import { Logo } from "@/components/logo";
 
 export function SiteHeader() {
   return (
-    <header className="top">
-      <Link className="brand" href="/" aria-label="T-Tensor home">
+    <header className="top" id="top">
+      <Link className="brand" href="/" aria-label="Thyra home">
         <Logo />
-        <span>T-Tensor</span>
-        <small>AI thyroid tracking</small>
+        Thyra
       </Link>
-      <Link className="nav-cta" href="/#join">
-        Join the waitlist
-      </Link>
+      <nav aria-label="Main">
+        <Link className="plain" href="/#now">
+          The app
+        </Link>
+        <Link className="plain" href="/#next">
+          What&apos;s next
+        </Link>
+        <Link className="nav-cta" href="/#get">
+          Get Thyra
+        </Link>
+      </nav>
     </header>
   );
 }

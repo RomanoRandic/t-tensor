@@ -5,6 +5,7 @@ import type { FormEvent } from "react";
 import Link from "next/link";
 import { PRIVACY_EMAIL, PRIVACY_VERSION } from "@/lib/legal";
 import { CONDITIONS } from "@/lib/waitlist";
+import { VOTE_KEYS, VOTE_LABELS, useVotes } from "@/components/votes";
 
 type Phase =
   | { type: "idle" }
@@ -12,10 +13,11 @@ type Phase =
   | { type: "success"; message: string }
   | { type: "error"; message: string };
 
-const SUCCESS_MESSAGE = "You're on the list. We'll email you when early access opens.";
+const SUCCESS_MESSAGE = "You're on the iPhone list. We'll email you when it's ready.";
 
 export function WaitlistForm() {
   const [phase, setPhase] = useState<Phase>({ type: "idle" });
+  const { selected, toggle } = useVotes();
 
   async function onSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -137,6 +139,20 @@ export function WaitlistForm() {
         </div>
       </fieldset>
 
+      <fieldset disabled={pending}>
+        <legend>
+          What should we build first? <span>(optional, pick any)</span>
+        </legend>
+        <div className="choices">
+          {VOTE_KEYS.map((key) => (
+            <label className="choice" key={key}>
+              <input type="checkbox" checked={selected[key]} onChange={(event) => toggle(key, event.target.checked)} />
+              <span>{VOTE_LABELS[key]}</span>
+            </label>
+          ))}
+        </div>
+      </fieldset>
+
       <label className="consent">
         <input type="checkbox" name="consent" value="yes" required disabled={pending} />
         <span>
@@ -148,10 +164,10 @@ export function WaitlistForm() {
       </label>
 
       <button type="submit" disabled={pending}>
-        {pending ? "Joining…" : "Join the waitlist"}
+        {pending ? "Joining…" : "Join the iPhone waitlist"}
       </button>
       <p className="fine">
-        We never sell or share your data for advertising. Withdraw consent or ask us to delete your answers anytime at{" "}
+        The optional “build first” picks stay on this page and aren’t saved with your email yet. We never sell or share your data for advertising. Withdraw consent or ask us to delete your answers anytime at{" "}
         <a href={`mailto:${PRIVACY_EMAIL}`}>{PRIVACY_EMAIL}</a>.
       </p>
       {phase.type === "error" ? (

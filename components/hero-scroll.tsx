@@ -9,12 +9,12 @@ const SLIDES = [
   {
     kicker: "AI for people on levothyroxine",
     title: "Know why you feel off between blood tests",
-    body: "T-Tensor connects your medication, symptoms, labs and wearable data, and writes a short summary to bring to your doctor.",
+    body: "Thyra connects your medication, symptoms, labs and wearable data, and writes a short summary to bring to your doctor.",
   },
   {
     kicker: "Between blood tests",
     title: "The dose is lived in the weeks labs miss",
-    body: "Tests are spaced weeks apart. T-Tensor keeps those days: whether the tablet was on time, and how you actually felt.",
+    body: "Tests are spaced weeks apart. Thyra keeps those days: whether the tablet was on time, and how you actually felt.",
   },
   {
     kicker: "For the appointment",

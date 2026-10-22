@@ -22,22 +22,22 @@ const mono = JetBrains_Mono({
 });
 
 const description =
-  "T-Tensor is an AI thyroid tracker in development. It will connect your medication, symptoms, labs and wearable data, find your personal patterns, and write a summary to bring to your doctor. Join the waitlist.";
+  "Thyra tracks your thyroid medication, symptoms and lab results between blood tests and turns them into one page for your doctor. On Android now; iPhone waitlist open.";
 
 export const metadata: Metadata = {
-  title: "T-Tensor Waitlist",
+  title: "Thyra for Android and iPhone",
   description,
-  applicationName: "T-Tensor",
+  applicationName: "Thyra",
   openGraph: {
-    title: "T-Tensor — Know why you feel off between blood tests",
+    title: "Thyra — Know why you feel off between blood tests",
     description,
     type: "website",
     locale: "en_US",
-    siteName: "T-Tensor",
+    siteName: "Thyra",
   },
   twitter: {
     card: "summary",
-    title: "T-Tensor — Know why you feel off between blood tests",
+    title: "Thyra — Know why you feel off between blood tests",
     description,
   },
 };
