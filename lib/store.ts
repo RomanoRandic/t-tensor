@@ -1,3 +1,4 @@
+import type { DownloadSource } from "@/lib/apk";
 import type { WaitlistEntry } from "@/lib/waitlist";
 
 function readConfig(): { url: string; key: string } {
@@ -9,6 +10,15 @@ function readConfig(): { url: string; key: string } {
   return { url: url.replace(/\/+$/, ""), key };
 }
 
+function restHeaders(key: string): HeadersInit {
+  return {
+    apikey: key,
+    Authorization: `Bearer ${key}`,
+    "Content-Type": "application/json",
+    Prefer: "return=minimal",
+  };
+}
+
 export async function saveWaitlistEntry(entry: WaitlistEntry): Promise<void> {
   const { url, key } = readConfig();
 
@@ -16,8 +26,7 @@ export async function saveWaitlistEntry(entry: WaitlistEntry): Promise<void> {
   const response = await fetch(`${url}/rest/v1/waitlist?on_conflict=email`, {
     method: "POST",
     headers: {
-      apikey: key,
-      "Content-Type": "application/json",
+      ...restHeaders(key),
       Prefer: "return=minimal,resolution=ignore-duplicates",
     },
     body: JSON.stringify({
@@ -37,5 +46,20 @@ export async function saveWaitlistEntry(entry: WaitlistEntry): Promise<void> {
     const body = (await response.json().catch(() => null)) as { code?: unknown } | null;
     const code = typeof body?.code === "string" ? body.code : "unknown";
     throw new Error(`Supabase insert failed (${response.status}, ${code})`);
+  }
+}
+
+export async function recordApkDownload(source: DownloadSource): Promise<void> {
+  const { url, key } = readConfig();
+  const response = await fetch(`${url}/rest/v1/apk_downloads`, {
+    method: "POST",
+    headers: restHeaders(key),
+    body: JSON.stringify({ source }),
+    cache: "no-store",
+  });
+  if (!response.ok) {
+    const body = (await response.json().catch(() => null)) as { code?: unknown } | null;
+    const code = typeof body?.code === "string" ? body.code : "unknown";
+    throw new Error(`Download log failed (${response.status}, ${code})`);
   }
 }

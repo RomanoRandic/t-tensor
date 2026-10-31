@@ -1,4 +1,5 @@
 import { AppStory } from "@/components/app-story";
+import { DownloadApk } from "@/components/download-apk";
 import { CheckInPhone } from "@/components/phones";
 import { Roadmap } from "@/components/roadmap";
 import { SiteFooter } from "@/components/site-footer";
@@ -19,8 +20,6 @@ const voices = [
     role: "Patient, on levothyroxine",
   },
 ];
-
-const APK_URL = "https://github.com/RomanoRandic/t-tensor/releases/download/v1.0.0/Thyra.apk";
 
 function DownloadIcon() {
   return (
@@ -72,10 +71,10 @@ export default function HomePage() {
                 your lab results and dose changes in one place, and bring one clear page to your doctor.
               </p>
               <div className="ctas">
-                <a className="cta" href={APK_URL} rel="noopener noreferrer" target="_blank">
+                <DownloadApk className="cta" from="hero">
                   <DownloadIcon />
                   Download APK from GitHub
-                </a>
+                </DownloadApk>
                 <a className="cta-2" href="#join">
                   Join the iPhone waitlist
                 </a>
@@ -212,10 +211,10 @@ export default function HomePage() {
                     <span>One-page summary for your doctor</span>
                   </li>
                 </ul>
-                <a className="cta" href={APK_URL} rel="noopener noreferrer" target="_blank">
+                <DownloadApk className="cta" from="android">
                   <DownloadIcon />
                   Download APK from GitHub
-                </a>
+                </DownloadApk>
               </div>
               <div className="panel" id="join">
                 <p className="tag">
