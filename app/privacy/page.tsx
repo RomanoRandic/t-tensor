@@ -81,8 +81,9 @@ export default function PrivacyPage() {
             in memory to limit repeated signups, and we do not store it with your answers.
           </p>
           <p>
-            We don&apos;t use cookies, analytics, advertising pixels, session recording or third-party trackers. Our
-            fonts are served from our own domain, so no data goes to font providers either.
+            We don&apos;t use cookies, advertising pixels, session recording or third-party trackers. Our fonts are
+            served from our own domain, so no data goes to font providers either. We use Vercel Web Analytics to count
+            visits and which pages are opened. It does not use cookies and it is not used for advertising.
           </p>
         </section>
 
@@ -114,7 +115,7 @@ export default function PrivacyPage() {
           </p>
           <ul>
             <li>
-              <strong>Vercel Inc.</strong> (USA), which hosts the website and processes requests.
+              <strong>Vercel Inc.</strong> (USA), which hosts the website, processes requests and counts page views.
             </li>
             <li>
               <strong>Supabase Inc.</strong> (USA), which hosts the database where your answers are stored.
