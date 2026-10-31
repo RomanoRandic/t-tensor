@@ -1,4 +1,3 @@
-import type { DownloadSource } from "@/lib/apk";
 import type { WaitlistEntry } from "@/lib/waitlist";
 
 function readConfig(): { url: string; key: string } {
@@ -49,17 +48,15 @@ export async function saveWaitlistEntry(entry: WaitlistEntry): Promise<void> {
   }
 }
 
-export async function recordApkDownload(source: DownloadSource): Promise<void> {
+export async function bumpApkDownloads(): Promise<void> {
   const { url, key } = readConfig();
-  const response = await fetch(`${url}/rest/v1/apk_downloads`, {
+  const response = await fetch(`${url}/rest/v1/rpc/bump_apk_downloads`, {
     method: "POST",
     headers: restHeaders(key),
-    body: JSON.stringify({ source }),
+    body: "{}",
     cache: "no-store",
   });
   if (!response.ok) {
-    const body = (await response.json().catch(() => null)) as { code?: unknown } | null;
-    const code = typeof body?.code === "string" ? body.code : "unknown";
-    throw new Error(`Download log failed (${response.status}, ${code})`);
+    throw new Error(`Download count failed (${response.status})`);
   }
 }

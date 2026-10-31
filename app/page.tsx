@@ -71,7 +71,7 @@ export default function HomePage() {
                 your lab results and dose changes in one place, and bring one clear page to your doctor.
               </p>
               <div className="ctas">
-                <DownloadApk className="cta" from="hero">
+                <DownloadApk className="cta">
                   <DownloadIcon />
                   Download APK from GitHub
                 </DownloadApk>
@@ -211,7 +211,7 @@ export default function HomePage() {
                     <span>One-page summary for your doctor</span>
                   </li>
                 </ul>
-                <DownloadApk className="cta" from="android">
+                <DownloadApk className="cta">
                   <DownloadIcon />
                   Download APK from GitHub
                 </DownloadApk>

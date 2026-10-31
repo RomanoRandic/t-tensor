@@ -83,8 +83,8 @@ export default function PrivacyPage() {
           <p>
             We don&apos;t use cookies, advertising pixels, session recording or third-party trackers. Our fonts are
             served from our own domain, so no data goes to font providers either.             We use Vercel Web Analytics to count visits and which pages are opened. When someone taps Download APK from
-            GitHub, we also store the time and which button they used. We do not store who downloaded it. None of this
-            uses cookies or advertising.
+            GitHub, we add 1 to a download counter. We do not store who downloaded it. None of this uses cookies or
+            advertising.
           </p>
         </section>
 

@@ -1,13 +1,12 @@
 import { NextResponse } from "next/server";
-import { APK_URL, parseDownloadSource } from "@/lib/apk";
-import { recordApkDownload } from "@/lib/store";
+import { APK_URL } from "@/lib/apk";
+import { bumpApkDownloads } from "@/lib/store";
 
 export const runtime = "nodejs";
 
-export async function GET(request: Request) {
-  const source = parseDownloadSource(new URL(request.url).searchParams.get("from"));
+export async function GET() {
   try {
-    await recordApkDownload(source);
+    await bumpApkDownloads();
   } catch (error) {
     console.error(error);
   }
