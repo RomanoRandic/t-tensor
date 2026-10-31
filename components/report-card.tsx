@@ -13,7 +13,7 @@ export function ReportCard({ phase = 2 }: { phase?: 0 | 1 | 2 }) {
         role="img"
         aria-label="TSH falling from 6.8 to 2.1 over three lab draws"
       >
-        <rect x="34" y="53" width="276" height="47" fill="var(--accent-soft)" />
+        <rect x="34" y="53" width="276" height="47" fill="var(--teal-soft)" />
         <text x="30" y="56" textAnchor="end">
           4.0
         </text>
@@ -27,13 +27,13 @@ export function ReportCard({ phase = 2 }: { phase?: 0 | 1 | 2 }) {
         <polyline
           points="44,17 172,55 300,78"
           fill="none"
-          stroke="var(--accent)"
+          stroke="var(--teal)"
           strokeWidth="2.5"
           strokeLinejoin="round"
         />
-        <circle cx="44" cy="17" r="4.5" fill="var(--flag)" />
-        <circle cx="172" cy="55" r="4.5" fill="var(--accent)" />
-        <circle cx="300" cy="78" r="4.5" fill="var(--accent)" />
+        <circle cx="44" cy="17" r="4.5" fill="var(--accent)" />
+        <circle cx="172" cy="55" r="4.5" fill="var(--teal)" />
+        <circle cx="300" cy="78" r="4.5" fill="var(--teal)" />
         <text x="44" y="118" textAnchor="middle">
           Wk 0 · 6.8
         </text>
@@ -62,8 +62,8 @@ export function ReportCard({ phase = 2 }: { phase?: 0 | 1 | 2 }) {
       <div className="insight reveal reveal-insight">
         <i aria-hidden="true" />
         <span>
-          <strong>AI insight:</strong> Fatigue was higher on days the dose was taken within 30 min of breakfast.
-          Worth discussing timing.
+          <strong>A pattern, not a cause.</strong> Fatigue was higher on days the dose was taken within 30 min of
+          breakfast. Bring it to your doctor before changing anything.
         </span>
       </div>
       <figcaption className="sample-tag">Illustrative example, not real patient data</figcaption>

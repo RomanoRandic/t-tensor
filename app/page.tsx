@@ -20,6 +20,16 @@ const voices = [
   },
 ];
 
+const APK_URL = "https://github.com/RomanoRandic/t-tensor/releases/download/v1.0.0/Thyra.apk";
+
+function DownloadIcon() {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <path d="M12 3v12M7 11l5 5 5-5M5 21h14" />
+    </svg>
+  );
+}
+
 function PhoneIcon() {
   return (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
@@ -62,15 +72,18 @@ export default function HomePage() {
                 your lab results and dose changes in one place, and bring one clear page to your doctor.
               </p>
               <div className="ctas">
-                <a className="cta" href="#get">
-                  <PhoneIcon />
-                  Get it on Google Play
+                <a className="cta" href={APK_URL} rel="noopener noreferrer" target="_blank">
+                  <DownloadIcon />
+                  Download APK from GitHub
                 </a>
                 <a className="cta-2" href="#join">
                   Join the iPhone waitlist
                 </a>
               </div>
-              <p className="hero-note">Your data stays on your phone. Not a medical device.</p>
+              <p className="hero-note">
+              Thyra helps you spot patterns. It doesn&apos;t diagnose or change your dose; that stays between you and
+              your doctor. Everything you log stays on your phone.
+            </p>
             </div>
             <div className="hero-phone">
               <CheckInPhone />
@@ -199,9 +212,9 @@ export default function HomePage() {
                     <span>One-page summary for your doctor</span>
                   </li>
                 </ul>
-                <a className="cta" href="#get">
-                  <PhoneIcon />
-                  Get it on Google Play
+                <a className="cta" href={APK_URL} rel="noopener noreferrer" target="_blank">
+                  <DownloadIcon />
+                  Download APK from GitHub
                 </a>
               </div>
               <div className="panel" id="join">

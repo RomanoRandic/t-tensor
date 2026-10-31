@@ -1,6 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import type { ReactNode } from "react";
-import { Bricolage_Grotesque, Figtree, JetBrains_Mono } from "next/font/google";
+import { Bricolage_Grotesque, Figtree } from "next/font/google";
 import "./globals.css";
 
 const display = Bricolage_Grotesque({
@@ -13,12 +13,6 @@ const sans = Figtree({
   subsets: ["latin"],
   display: "swap",
   variable: "--font-body",
-});
-
-const mono = JetBrains_Mono({
-  subsets: ["latin"],
-  display: "swap",
-  variable: "--font-mono",
 });
 
 const description =
@@ -47,14 +41,14 @@ export const viewport: Viewport = {
   initialScale: 1,
   viewportFit: "cover",
   themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#f6f4fb" },
-    { media: "(prefers-color-scheme: dark)", color: "#120d1c" },
+    { media: "(prefers-color-scheme: light)", color: "#fbf6f2" },
+    { media: "(prefers-color-scheme: dark)", color: "#1c1420" },
   ],
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang="en" className={`${display.variable} ${sans.variable} ${mono.variable}`}>
+    <html lang="en" className={`${display.variable} ${sans.variable}`}>
       <body>
         <a className="skip" href="#main">
           Skip to content

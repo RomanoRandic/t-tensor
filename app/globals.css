@@ -1,47 +1,47 @@
 :root {
-  --bg: #f6f4fb;
+  --bg: #fbf6f2;
   --surface: #ffffff;
-  --ink: #1e1530;
-  --muted: #625a73;
-  --line: #e2dcef;
-  --accent: #6d28d9;
+  --ink: #2b1b2e;
+  --muted: #6b5d6e;
+  --line: #ece0da;
+  --accent: #6e2b99;
   --accent-ink: #ffffff;
-  --accent-soft: #efe7fd;
-  --accent-deep: #4c1d95;
+  --accent-soft: #f1e6f5;
+  --accent-deep: #4a1a6b;
   --warm: #f2a06a;
   --warm-text: #a8501c;
   --warm-soft: #fde9da;
-  --flag: #c2417f;
-  --flag-soft: #fbe8f1;
-  --ok: #0f766e;
-  --teal: #0f766e;
-  --teal-soft: #e6f4f1;
-  --bar: #c9c1d8;
-  --phone-frame: #17111f;
-  --shadow: 40, 20, 80;
+  --flag: #b3261e;
+  --flag-soft: #fcebe9;
+  --ok: #33695a;
+  --teal: #33695a;
+  --teal-soft: #e3f0ea;
+  --bar: #e4d6cc;
+  --phone-frame: #2b1b2e;
+  --shadow: 43, 27, 46;
   color-scheme: light;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --bg: #120d1c;
-    --surface: #1b1428;
-    --ink: #eee9f7;
-    --muted: #a99fbd;
-    --line: #2f2542;
-    --accent: #a78bfa;
-    --accent-ink: #160a2e;
-    --accent-soft: #2a1d47;
-    --accent-deep: #d8c8ff;
+    --bg: #1c1420;
+    --surface: #261a2c;
+    --ink: #f6efe8;
+    --muted: #b8a8b4;
+    --line: #3a2d38;
+    --accent: #c9a2ea;
+    --accent-ink: #1c1420;
+    --accent-soft: #342040;
+    --accent-deep: #e6d2f7;
     --warm: #f5b183;
     --warm-text: #f5b183;
     --warm-soft: #3a2418;
-    --flag: #f08bbd;
-    --flag-soft: #3a1a2c;
-    --ok: #5eead4;
-    --teal: #5eead4;
-    --teal-soft: #12302c;
-    --bar: #4a3f5e;
+    --flag: #f0a39e;
+    --flag-soft: #3a1c1a;
+    --ok: #8ec9b6;
+    --teal: #8ec9b6;
+    --teal-soft: #1a2e28;
+    --bar: #4a3b42;
     --phone-frame: #000000;
     --shadow: 0, 0, 0;
     color-scheme: dark;
@@ -59,12 +59,12 @@ html {
 body {
   margin: 0;
   background:
-    radial-gradient(980px 420px at 8% -8%, color-mix(in srgb, var(--accent) 18%, transparent), transparent 60%),
-    radial-gradient(720px 380px at 100% 0%, color-mix(in srgb, var(--flag) 12%, transparent), transparent 55%),
+    radial-gradient(980px 420px at 8% -8%, color-mix(in srgb, var(--accent) 10%, transparent), transparent 60%),
+    radial-gradient(620px 340px at 100% 0%, color-mix(in srgb, var(--warm) 14%, transparent), transparent 55%),
     var(--bg);
   color: var(--ink);
   font-family: var(--font-body), "Segoe UI", system-ui, sans-serif;
-  font-size: 17px;
+  font-size: 16px;
   line-height: 1.55;
 }
 
@@ -72,7 +72,7 @@ body::before {
   content: "";
   display: block;
   height: 3px;
-  background: linear-gradient(90deg, var(--accent), color-mix(in srgb, var(--accent) 35%, var(--flag)));
+  background: linear-gradient(90deg, var(--accent), color-mix(in srgb, var(--accent) 40%, var(--warm)));
 }
 
 ::selection {
@@ -401,7 +401,7 @@ select:focus-visible,
   margin: 0;
   background: var(--surface);
   border: 1px solid var(--line);
-  border-radius: 18px;
+  border-radius: 22px;
   padding: 22px 22px 16px;
   box-shadow:
     0 1px 0 color-mix(in srgb, white 65%, transparent) inset,
@@ -515,9 +515,10 @@ select:focus-visible,
   display: flex;
   gap: 10px;
   align-items: flex-start;
-  background: var(--flag-soft);
-  border-radius: 12px;
-  padding: 12px;
+  background: var(--warm-soft);
+  color: var(--warm-text);
+  border-radius: 28px;
+  padding: 12px 14px;
   font-size: 0.92rem;
 }
 
@@ -526,7 +527,7 @@ select:focus-visible,
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: var(--flag);
+  background: var(--warm);
   margin-top: 7px;
 }
 
@@ -846,7 +847,7 @@ h2 {
   padding: 22px 20px 18px;
   background: var(--surface);
   border: 1px solid var(--line);
-  border-radius: 18px;
+  border-radius: 22px;
 }
 
 .voice blockquote {
@@ -1040,12 +1041,13 @@ button[type="submit"]:disabled {
 
 .status {
   font-size: 0.98rem;
-  border-radius: 12px;
+  border-radius: 28px;
   padding: 14px 16px;
 }
 
 .status.ok {
-  background: var(--accent-soft);
+  background: var(--warm-soft);
+  color: var(--warm-text);
 }
 
 .status.err {
@@ -1519,9 +1521,9 @@ footer {
 }
 
 .home .brand {
-  font-weight: 700;
-  font-size: 1.18rem;
-  letter-spacing: -0.02em;
+  font-weight: 800;
+  font-size: 1.35rem;
+  letter-spacing: -0.04em;
 }
 
 .top nav {
@@ -1694,7 +1696,7 @@ html.pin .slide:first-child {
 }
 
 .phone .scr.dark {
-  background: #2a2238;
+  background: #4a1a6b;
   color: #ffffff;
   padding-top: 70px;
 }
@@ -1779,6 +1781,40 @@ html.pin .slide:first-child {
   color: var(--accent-ink);
 }
 
+.s-words {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.s-words span {
+  position: relative;
+  border: 1px solid var(--line);
+  background: var(--bg);
+  border-radius: 999px;
+  padding: 5px 7px;
+  font-weight: 600;
+  font-size: 10px;
+}
+
+.s-words span.on {
+  background: var(--accent-soft);
+  border-color: var(--accent);
+  color: var(--accent-deep);
+}
+
+.s-words span.y::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -5px;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--warm);
+  transform: translateX(-50%);
+}
+
 .s-chip {
   display: inline-block;
   border: 1px solid var(--line);
@@ -1821,22 +1857,24 @@ html.pin .slide:first-child {
 
 .s-clock {
   text-align: center;
-  font-family: var(--font-mono), ui-monospace, monospace;
+  font-family: var(--font-display), "Avenir Next", "Segoe UI", sans-serif;
   font-size: 34px;
-  font-weight: 600;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.03em;
 }
 
 .s-date {
   text-align: center;
   font-size: 11px;
-  color: #d9d2e8;
+  color: #f1e6f5;
   margin-bottom: 14px;
 }
 
 .s-note {
   background: rgb(255 255 255 / 0.94);
-  color: #1e1530;
-  border-radius: 16px;
+  color: #2b1b2e;
+  border-radius: 22px;
   padding: 10px 12px;
   display: flex;
   flex-direction: column;
@@ -1850,7 +1888,7 @@ html.pin .slide:first-child {
 }
 
 .s-note .acts span {
-  border: 1px solid #d4cbe6;
+  border: 1px solid #ece0da;
   border-radius: 8px;
   text-align: center;
   padding: 6px;
@@ -1859,9 +1897,9 @@ html.pin .slide:first-child {
 }
 
 .s-note .acts span.go {
-  background: #6d28d9;
-  border-color: #6d28d9;
-  color: #ffffff;
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--accent-ink);
 }
 
 .s-note-meta {
@@ -1870,7 +1908,7 @@ html.pin .slide:first-child {
 
 .s-note-meta span,
 .s-note-sub {
-  color: #625a73;
+  color: #6b5d6e;
 }
 
 .s-q {
@@ -1893,12 +1931,14 @@ html.pin .slide:first-child {
 }
 
 .phone svg text {
-  font-family: var(--font-mono), ui-monospace, monospace;
+  font-family: var(--font-body), "Segoe UI", sans-serif;
+  font-variant-numeric: tabular-nums;
 }
 
 .mono {
-  font-family: var(--font-mono), ui-monospace, monospace;
-  font-weight: 500;
+  font-family: var(--font-body), "Segoe UI", sans-serif;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
 }
 
 .home .problem .sources {
@@ -1937,9 +1977,10 @@ html.pin .story-list {
 }
 
 .kicker {
-  font-family: var(--font-mono), ui-monospace, monospace;
+  font-family: var(--font-body), "Segoe UI", sans-serif;
   font-size: 0.78rem;
-  letter-spacing: 0.14em;
+  font-weight: 600;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--accent);
   display: flex;
@@ -2205,7 +2246,7 @@ html.pin .meter i {
 .panel {
   background: var(--surface);
   border: 1px solid var(--line);
-  border-radius: 20px;
+  border-radius: 22px;
   padding: clamp(22px, 3vw, 32px);
   display: flex;
   flex-direction: column;
@@ -2223,13 +2264,14 @@ html.pin .meter i {
 }
 
 .panel.android {
-  background: var(--accent-soft);
+  background: var(--warm-soft);
   border-color: transparent;
+  border-radius: 28px;
   box-shadow: none;
 }
 
 .panel.android .tag {
-  color: var(--teal);
+  color: var(--warm-text);
 }
 
 .panel .cta {

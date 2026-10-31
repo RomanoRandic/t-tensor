@@ -5,8 +5,8 @@ import { SiteHeader } from "@/components/site-header";
 import { CONTROLLER_NAME, PRIVACY_EFFECTIVE, PRIVACY_EMAIL, controllerLabel } from "@/lib/legal";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy · T-Tensor",
-  description: "How T-Tensor collects, uses and protects waitlist data, including consumer health data.",
+  title: "Privacy Policy · Thyra",
+  description: "How Thyra and T-Tensor collect, use and protect waitlist data, including consumer health data.",
 };
 
 const mail = `mailto:${PRIVACY_EMAIL}`;

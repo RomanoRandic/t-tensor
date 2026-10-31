@@ -6,7 +6,7 @@ export function SiteHeader() {
     <header className="top" id="top">
       <Link className="brand" href="/" aria-label="Thyra home">
         <Logo />
-        Thyra
+        thyra
       </Link>
       <nav aria-label="Main">
         <Link className="plain" href="/#now">

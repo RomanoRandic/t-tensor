@@ -13,7 +13,7 @@ type Phase =
   | { type: "success"; message: string }
   | { type: "error"; message: string };
 
-const SUCCESS_MESSAGE = "You're on the iPhone list. We'll email you when it's ready.";
+const SUCCESS_MESSAGE = "You're on the list. We'll email you when Thyra is ready for iPhone.";
 
 export function WaitlistForm() {
   const [phase, setPhase] = useState<Phase>({ type: "idle" });

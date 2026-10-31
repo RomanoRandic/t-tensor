@@ -11,9 +11,9 @@ export function Phone({ label, dark = false, children }: { label: string; dark?:
 
 export function CheckInPhone() {
   return (
-    <Phone label="Thyra's daily check-in screen: tablet taken, tiredness rated 3 of 4, brain fog 1 of 4">
-      <div className="s-title">How are you today?</div>
-      <div className="s-sub">Tue 20 Oct · day 23 of logging</div>
+    <Phone label="Thyra's daily check-in: morning greeting, tiredness a lot, brain fog mild">
+      <div className="s-sub">Mon 19 Oct · day 52</div>
+      <div className="s-title">Morning, Ana. How&apos;s today?</div>
       <div className="s-card">
         <div className="s-h">Tablet today</div>
         <div className="s-segs c3">
@@ -30,44 +30,29 @@ export function CheckInPhone() {
       </div>
       <div className="s-card">
         <div className="s-row">
-          <span className="s-h">How you feel</span>
-          <span className="s-sub">0 none · 4 severe</span>
+          <span className="s-h">Tiredness</span>
+          <span className="s-sub">yesterday: A lot</span>
+        </div>
+        <div className="s-words">
+          <span>None</span>
+          <span>Mild</span>
+          <span>Some</span>
+          <span className="on y">A lot</span>
+          <span>Severe</span>
         </div>
         <div className="s-row">
-          <b>Tiredness</b>
-          <span className="s-sub">strong</span>
+          <span className="s-h">Brain fog</span>
+          <span className="s-sub">yesterday: Mild</span>
         </div>
-        <div className="s-segs c5">
-          <span className="s-seg">0</span>
-          <span className="s-seg">1</span>
-          <span className="s-seg">2</span>
-          <span className="s-seg on">3</span>
-          <span className="s-seg">4</span>
-        </div>
-        <div className="s-row">
-          <b>Brain fog</b>
-          <span className="s-sub">mild</span>
-        </div>
-        <div className="s-segs c5">
-          <span className="s-seg">0</span>
-          <span className="s-seg on">1</span>
-          <span className="s-seg">2</span>
-          <span className="s-seg">3</span>
-          <span className="s-seg">4</span>
-        </div>
-        <div className="s-row">
-          <b>Feeling cold</b>
-          <span className="s-sub">—</span>
-        </div>
-        <div className="s-segs c5">
-          <span className="s-seg">0</span>
-          <span className="s-seg">1</span>
-          <span className="s-seg">2</span>
-          <span className="s-seg">3</span>
-          <span className="s-seg">4</span>
+        <div className="s-words">
+          <span>None</span>
+          <span className="on y">Mild</span>
+          <span>Some</span>
+          <span>A lot</span>
+          <span>Severe</span>
         </div>
       </div>
-      <div className="s-btn">Save check-in</div>
+      <div className="s-btn">Save today</div>
     </Phone>
   );
 }
@@ -75,7 +60,7 @@ export function CheckInPhone() {
 export function SetupPhone() {
   return (
     <Phone label="Setup screen: choosing a daily levothyroxine dose of 100 mcg">
-      <div className="s-sub">Step 4 of 9 · about 60 s</div>
+      <div className="s-sub">Step 4 of 9 · about 60 seconds</div>
       <div className="s-prog">
         <b style={{ width: "44%" }} />
       </div>
@@ -138,7 +123,7 @@ export function TimelinePhone() {
       <div className="s-sub">Jul – Oct · sample data</div>
       <div className="s-card">
         <svg viewBox="0 0 250 176" width="100%" aria-hidden="true">
-          <rect x="26" y="14" width="220" height="62" fill="var(--accent-soft)" />
+          <rect x="26" y="14" width="220" height="62" fill="var(--teal-soft)" />
           <text x="22" y="18" fontSize="9" fill="var(--muted)" textAnchor="end">
             4.0
           </text>
@@ -174,7 +159,7 @@ export function TimelinePhone() {
           <polyline
             points="26,136 50,128 74,138 98,130 122,134 146,126 170,132 194,128 218,134 246,130"
             fill="none"
-            stroke="var(--flag)"
+            stroke="var(--accent)"
             strokeWidth="2"
             strokeLinejoin="round"
           />

@@ -14,7 +14,7 @@ const SLIDES: { kicker: string; title: string; body: string; phone: ReactNode }[
   {
     kicker: "02",
     title: "A 45-second check-in, every day",
-    body: "A reminder at the time you take your tablet. Tap whether you took it, rate a few symptoms from 0 to 4, tag a bad night or your period, and you're done.",
+    body: "A reminder at the time you take your tablet. Tap whether you took it, say how you feel in words, tag a bad night or your period, and you're done.",
     phone: <ReminderPhone />,
   },
   {
