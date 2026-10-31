@@ -9,6 +9,42 @@ export function Phone({ label, dark = false, children }: { label: string; dark?:
   );
 }
 
+export function ShotPhone({ label, src }: { label: string; src: string }) {
+  return (
+    <div className="phone phone-shot" role="img" aria-label={label}>
+      <span className="notch" />
+      {/* Next/Image is unnecessary here: this is a decorative screenshot inside a fixed phone frame. */}
+      <img src={src} alt="" />
+    </div>
+  );
+}
+
+export function GardenPhone() {
+  return (
+    <ShotPhone
+      label="Thyra's garden: a purple companion, seven flowers, and four of five check-ins this week"
+      src="/app/garden.png"
+    />
+  );
+}
+
+function CompanionMark() {
+  return (
+    <svg className="s-note-mark" viewBox="0 0 64 64" aria-hidden="true">
+      <path d="M20 28 C10 12 2 16 6 26 C10 36 18 36 24 32 Z" fill="#6e2b99" />
+      <path d="M44 28 C54 12 62 16 58 26 C54 36 46 36 40 32 Z" fill="#6e2b99" />
+      <path d="M22 36 C12 40 10 52 18 54 C26 56 28 44 26 38 Z" fill="#6e2b99" />
+      <path d="M42 36 C52 40 54 52 46 54 C38 56 36 44 38 38 Z" fill="#6e2b99" />
+      <ellipse cx="32" cy="36" rx="5" ry="12" fill="#4a1a6b" />
+      <circle cx="32" cy="22" r="8" fill="#8a43b8" />
+      <circle cx="29" cy="21" r="2.4" fill="#e8913e" />
+      <circle cx="35" cy="21" r="2.4" fill="#e8913e" />
+      <circle cx="20" cy="18" r="2.2" fill="#f2a06a" />
+      <circle cx="44" cy="18" r="2.2" fill="#f2a06a" />
+    </svg>
+  );
+}
+
 export function CheckInPhone() {
   return (
     <Phone label="Thyra's daily check-in: morning greeting, tiredness a lot, brain fog mild">
@@ -102,10 +138,13 @@ export function ReminderPhone() {
           <b>Thyra</b>
           <span>now</span>
         </div>
-        <div>
-          <b>Time for your tablet</b>
-          <br />
-          <span className="s-note-sub">Levothyroxine 100 mcg</span>
+        <div className="s-note-body">
+          <CompanionMark />
+          <div>
+            <b>Time for your tablet</b>
+            <br />
+            <span className="s-note-sub">Then a 20-second check-in. Your garden is waiting.</span>
+          </div>
         </div>
         <div className="acts">
           <span className="go">Taken</span>

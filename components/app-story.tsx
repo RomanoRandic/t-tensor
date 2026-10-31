@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import type { CSSProperties, ReactNode } from "react";
-import { ReminderPhone, SetupPhone, SummaryPhone, TimelinePhone } from "@/components/phones";
+import { GardenPhone, ReminderPhone, SetupPhone, SummaryPhone, TimelinePhone } from "@/components/phones";
 
 const SLIDES: { kicker: string; title: string; body: string; phone: ReactNode }[] = [
   {
@@ -13,18 +13,24 @@ const SLIDES: { kicker: string; title: string; body: string; phone: ReactNode }[
   },
   {
     kicker: "02",
-    title: "A 45-second check-in, every day",
-    body: "A reminder at the time you take your tablet. Tap whether you took it, say how you feel in words, tag a bad night or your period, and you're done.",
+    title: "A reminder on your lock screen",
+    body: "At tablet time, Thyra shows a notification with your companion. Tap Taken, then a 20-second check-in: did you take it, and how's your energy.",
     phone: <ReminderPhone />,
   },
   {
     kicker: "03",
+    title: "Your purple companion lives in a garden",
+    body: "They sleep until you check in, then wake up. Five check-ins in a week plant a flower. Each flower is one week you logged, so the garden is a picture of showing up, not a score.",
+    phone: <GardenPhone />,
+  },
+  {
+    kicker: "04",
     title: "Labs, dose and symptoms on one timeline",
     body: "Every TSH result next to the dose you were on and how you felt that week, kept with the range printed by your lab. No guessing which change came first.",
     phone: <TimelinePhone />,
   },
   {
-    kicker: "04",
+    kicker: "05",
     title: "Bring one page to your visit",
     body: "Before the appointment, the weeks between blood tests become a short summary: what changed, how often the tablet was on time, and the questions you meant to ask.",
     phone: <SummaryPhone />,

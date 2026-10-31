@@ -1710,6 +1710,31 @@ html.pin .slide:first-child {
   height: 18px;
   border-radius: 999px;
   background: var(--phone-frame);
+  z-index: 1;
+}
+
+.phone-shot {
+  background: #f4eef8;
+}
+
+.phone-shot img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+}
+
+.s-note-body {
+  display: grid;
+  grid-template-columns: 36px 1fr;
+  gap: 8px;
+  align-items: start;
+}
+
+.s-note-mark {
+  width: 36px;
+  height: 36px;
 }
 
 .s-title {
