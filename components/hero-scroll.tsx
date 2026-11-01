@@ -14,7 +14,7 @@ const SLIDES = [
   {
     kicker: "Between blood tests",
     title: "The dose is lived in the weeks labs miss",
-    body: "Tests are spaced weeks apart. Thyra keeps those days: whether the tablet was on time, and how you actually felt.",
+    body: "Tests are spaced weeks apart. Thyra keeps those days: whether the pill was on time, and how you actually felt.",
   },
   {
     kicker: "For the appointment",

@@ -9,8 +9,8 @@ export function SiteHeader() {
         thyra
       </Link>
       <nav aria-label="Main">
-        <Link className="plain" href="/#now">
-          The app
+        <Link className="plain" href="/#how">
+          How it works
         </Link>
         <Link className="plain" href="/#next">
           What&apos;s next

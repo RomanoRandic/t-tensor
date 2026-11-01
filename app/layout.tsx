@@ -1,16 +1,17 @@
 import type { Metadata, Viewport } from "next";
 import type { ReactNode } from "react";
 import { Analytics } from "@vercel/analytics/next";
-import { Bricolage_Grotesque, Figtree } from "next/font/google";
+import { Hanken_Grotesk, Young_Serif } from "next/font/google";
 import "./globals.css";
 
-const display = Bricolage_Grotesque({
+const display = Young_Serif({
   subsets: ["latin"],
+  weight: "400",
   display: "swap",
   variable: "--font-display",
 });
 
-const sans = Figtree({
+const sans = Hanken_Grotesk({
   subsets: ["latin"],
   display: "swap",
   variable: "--font-body",
@@ -42,8 +43,8 @@ export const viewport: Viewport = {
   initialScale: 1,
   viewportFit: "cover",
   themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#fbf6f2" },
-    { media: "(prefers-color-scheme: dark)", color: "#1c1420" },
+    { media: "(prefers-color-scheme: light)", color: "#1e3b2f" },
+    { media: "(prefers-color-scheme: dark)", color: "#1e3b2f" },
   ],
 };
 
