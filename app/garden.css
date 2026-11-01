@@ -246,10 +246,14 @@
   color: var(--g-cream-3);
 }
 
+/* Keep the drawing's own proportions so wide screens never crop the flowers off the top;
+   below 240px tall, the sides are cropped instead. */
 .g-scene {
   display: block;
   width: 100%;
-  height: clamp(240px, 26vw, 380px);
+  height: auto;
+  aspect-ratio: 1440 / 380;
+  min-height: 240px;
   margin: -8px 0 -2px;
 }
 
